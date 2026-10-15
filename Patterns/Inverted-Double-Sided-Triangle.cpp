@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 void pattern20(int n){
-    //Top Part
+    
     int gap=2*n-2;
     for(int i=1; i<=2*n-1; i++){
         int stars=i;
