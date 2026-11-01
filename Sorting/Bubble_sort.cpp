@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-void selection_sort(int arr[],int n){
+void bubble_sort(int arr[],int n){
 
     for(int i=n-1; i>=1; i--){
         int issort=0;
@@ -27,7 +27,7 @@ int main(){
         cin >> arr[i];
     }
 
-    selection_sort(arr,n);
+    bubble_sort(arr,n);
 
     for(auto x : arr){
         cout << x << " ";
