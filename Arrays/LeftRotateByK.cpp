@@ -1,26 +1,39 @@
 #include<iostream>
 #include<vector>
+#include<algorithm>
 using namespace std;
 
 //Brute Force
 //Time Complexity : O(k+1)  i.e O(n+1)
 //Space Complexity : O(k)   i.e O(n)
+// void krotate(vector<int> &arr,int k,int n){
+//     k=k%n;
+
+//     vector<int>temp;
+//     for(int i=0; i<k; i++){
+//         temp.push_back(arr[i]);
+//     }
+
+//     for(int j=k; j<n; j++){
+//         arr[j-k]=arr[j];
+//     }
+
+//     for(int i=n-k; i<n; i++){
+//         arr[i]=temp[i-(n-k)];
+//     }  
+// }
+
+
+//Optimal Solution
+//Time Complexity : O(2n)
+//Space Complexity : O(1)
 void krotate(vector<int> &arr,int k,int n){
     k=k%n;
-
-    vector<int>temp;
-    for(int i=0; i<k; i++){
-        temp.push_back(arr[i]);
-    }
-
-    for(int j=k; j<n; j++){
-        arr[j-k]=arr[j];
-    }
-
-    for(int i=n-k; i<n; i++){
-        arr[i]=temp[i-(n-k)];
-    }  
+    reverse(arr.begin(),arr.begin()+k);
+    reverse(arr.begin()+k,arr.end());
+    reverse(arr.begin(),arr.end());
 }
+
 
 int main(){
      int n;
