@@ -18,6 +18,23 @@ using namespace std;
 //     }
 // }
 
+//Better Solution
+//TC : O(2n)
+//SC : O(n)
+// int missing(vector<int> a,int n){
+//     int hash[n+1]={0};
+//     for(int i=1; i<n; i++){
+//         hash[a[i]]=1;
+//     }
+//     for(int i=1; i<n; i++){
+//         if(hash[i]==0){
+//             return i;
+//         }
+//     }
+
+//     return 0;
+// }
+
 //Optimal Solution: Method 1
 //TC : O(n)
 //SC : O(1)
