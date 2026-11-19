@@ -18,15 +18,32 @@ using namespace std;
 //     }
 // }
 
-//Better Solution
-int missing(vector<int> a,int n){
-    int total_sum=n*(n+1)/2;
-    int sum=0;
-    for(int i=0; i<n-1; i++){
-        sum+=a[i];
-    }
+//Optimal Solution: Method 1
+//TC : O(n)
+//SC : O(1)
+// int missing(vector<int> a,int n){
+//     int total_sum=n*(n+1)/2;
+//     int sum=0;
+//     for(int i=0; i<n-1; i++){
+//         sum+=a[i];
+//     }
 
-    return total_sum-sum;
+//     return total_sum-sum;
+// }
+
+//Optimal Solution: Method 2
+//TC : O(n)
+//SC : O(1)
+int missing(vector<int> a,int n){
+    int xor1=0;
+    int xor2=0;
+
+    for(int i=0; i<n; i++){
+       xor1=xor1^i;
+       xor2=xor2^a[i];
+    }
+    xor1=xor1^n;
+    return xor1^xor2;
 }
 
 int main(){
@@ -40,7 +57,7 @@ int main(){
         cin >> arr[i];
     }
 
-    cout << missing(arr,n+1);
+    cout << missing(arr,n);
 
  return 0;
 }
